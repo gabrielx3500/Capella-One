@@ -506,6 +506,8 @@ ul.social-share-post li a:hover{
   font-weight: 700;
 }
 
+
+
 /*--End Page Single--*/
 /*-- subscribe --*/
 .w3-agileits-subscribe-form {
@@ -1320,4 +1322,116 @@ margin-left:2px;
 .client-info p {
   font-size: 15px;
   line-height: 30px;
+}
+/* div width, margins and float. */
+.content_rel_posts{
+  width:100%; /* width of each article column. */
+  float:left;
+  margin:5px 12px 5px 0;
+  padding:0px;
+  border:1px solid #000;
+}
+/* style for article heading. */
+.content_rel_posts p {
+  font-size:0.9em;
+  line-height:120%;
+  padding:5px 0 0 0;
+  margin:0px;
+}
+/* style for article heading link. */
+.content_rel_posts a{
+  text-decoration:none;
+  color:#21759b;
+}
+/* style for thumbnail */
+.content_rel_posts img{
+  float:none;
+  display:block;
+  padding:0px;
+  border-radius: 3px; 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); 
+  height: auto; /* Make images responsive. */
+  max-width: 100%; /* Make images responsive. */
+}
+/* style for h2 heading tag */
+h2.heading_rel_posts{
+  padding:0px;
+  margin:0px;
+  font-size:1.4em;
+  color:#666;
+
+
+
+}
+/*author box style*/
+#authorbox{
+background: #fff; /*background color of the author box*/
+border: 1px solid #ccc; /* border around the box */
+width:100%;
+overflow:hidden;
+color: #333;
+margin:15px 0 15px 0; /*space top and bottom of the box*/
+padding-bottom:5px;
+}
+#authorbox h3{
+font-size: 18px; /*font size of heading containing the author name*/
+color:#333; /* color of the heading text */
+margin:0 0 5px 0;
+padding:5px 2px 5px 5px;
+border-bottom: 1px solid #ccc;
+}
+#authorbox a{
+color: #c87137; /* Link color */
+text-decoration:none;
+}
+#authorbox img{
+margin:0;
+padding: 0 5px 0px 0px;
+float:left;
+}
+#authorbox p{
+color:#333; /* Author description text color */
+margin:0;
+padding:0px 5px 5px 5px;
+font-size:14px;
+line-height:150%;
+}
+/* Rel Posts*/
+
+
+/* div width, margins and float. */
+#content_rel_posts{
+  width:22%; /* width of each article column. */
+  float:left;
+  margin:5px 12px 5px 0;
+  padding:0px;
+}
+/* style for article heading. */
+#content_rel_posts p {
+  font-size:0.9em;
+  line-height:120%;
+  padding:5px 0 0 0;
+  margin:0px;
+}
+/* style for article heading link. */
+#content_rel_posts a{
+  text-decoration:none;
+  color:#21759b;
+}
+/* style for thumbnail */
+#content_rel_posts img{
+  float:none;
+  display:block;
+  padding:0px;
+  border-radius: 3px; 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); 
+  height: auto; /* Make images responsive. */
+  max-width: 100%; /* Make images responsive. */
+}
+/* style for h2 heading tag */
+h2.heading_rel_posts{
+  padding:0px;
+  margin:0px;
+  font-size:1.4em;
+  color:#666;
 }

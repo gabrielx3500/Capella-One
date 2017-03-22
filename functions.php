@@ -166,4 +166,114 @@ register_sidebar(array(
 'before_title' => '<h5>',
 'after_title' => '</h5>',
 ));
-?>
+
+
+
+/* Widget Footer Archives */
+
+register_sidebar(array(
+'name'=> 'Archives',
+'id' => 'my-archives',
+'description' => 'Widget My Archives',
+'before_widget' => '<div class="widget w3ls-archives-my">',
+'after_widget' => '</div>',
+'before_title' => '<h5>',
+'after_title' => '</h5>',
+));
+
+/* Widget Footer Tags */
+
+register_sidebar(array(
+'name'=> 'Tags',
+'id' => 'my-tags',
+'description' => 'Widget My Tags',
+'before_widget' => '<div class="widget w3ls-tags-my">',
+'after_widget' => '</div>',
+'before_title' => '<h5>',
+'after_title' => '</h5>',
+));
+
+/* Widget Footer Archives */
+
+register_sidebar(array(
+'name'=> 'Categories',
+'id' => 'my-categories',
+'description' => 'Widget My Categories',
+'before_widget' => '<div class="widget w3ls-categories-my">',
+'after_widget' => '</div>',
+'before_title' => '<h5>',
+'after_title' => '</h5>',
+));
+
+/*Function to Add Author Box*/
+function add_author_box($content){
+
+if( is_single() ) {
+
+/*Editable*/
+$img_ext = 'jpg'; //Replace this with png if you are using PNG images.
+$img_size = 82; //Edit this value to change the author image size.
+
+/*Getting author info*/
+$auth_id = get_the_author_meta('ID'); //Get author ID.
+$auth_name = get_the_author_meta('display_name'); // Get author name.
+$auth_des = get_the_author_meta('description'); // Get author description.
+$auth_page_url = get_author_posts_url($auth_id); //Get author Page URL.
+$upload_dir = wp_upload_dir();
+$uploads_folder_url = $upload_dir['url']; //uploads folder URL.
+$uploads_folder_path = $upload_dir['path']; //uploads folder path.
+$auth_avt = $uploads_folder_url.'/author'.$auth_id.'.'.$img_ext; //author image URL.
+$auth_avt_path = $uploads_folder_path.'/author'.$auth_id.'.'.$img_ext; //author image path.
+
+/*Check if user uploaded avatar exists*/
+if(file_exists($auth_avt_path)){
+ $auth_img = '<img src="'. $auth_avt .'" width="'. $img_size .'" height="'. $img_size .'" >'; //If user uploaded avatar exists, use it in the display.
+ }else{$auth_img = get_avatar( $auth_id, $img_size ); //If user uploaded avatar does not exist use gavatar.
+ }
+ 
+/*Output*/
+$content .= "<div id='authorbox'><h3>Article by <a href='$auth_page_url'>$auth_name</a></h3> $auth_img $auth_des </div>";
+}
+return $content;
+}
+add_filter ( 'the_content', 'add_author_box', 0 );
+
+/* Related Posts*/
+  
+ /* Function to add related posts with thumb on single post pages */
+function related_posts_with_thumb($content){
+global $post;
+if( is_single() ){
+$rel_posts = '';
+
+# 1. get category IDs of the current article and save to variable as an array.
+$categories = get_the_category();
+foreach($categories as $category){
+	$rel_cat[] = $category->cat_ID;
+}
+# 2. arguments for wp_query.	
+$rep_args = array(
+	'post__not_in' => array($post->ID), # don't display current post.
+	'category__in' => $rel_cat, # get posts within current categories.
+	'posts_per_page' => 4, # number of posts to display.
+	'orderby' => 'rand' # display random posts.
+);
+# 3. run the query.	
+$rep_query = new wp_query($rep_args);
+
+# 4. if the query has posts start the loop.
+if($rep_query->have_posts()){
+while($rep_query->have_posts()) : $rep_query->the_post();
+	$rel_img = get_the_post_thumbnail($post->ID, 'thumbnail'); ## get featured image with default thumbnail size. 
+	$rel_title =  get_the_title(); # get post title.
+	$rel_link = get_permalink(); # get post link.	
+	$rel_posts .= "<div id='content_rel_posts'> <a href='$rel_link'>$rel_img</a> <p><a href='$rel_link'> $rel_title </a></p></div>";
+endwhile;
+wp_reset_postdata();
+}
+# 5. Output.
+$content .= "<h2 class='heading_rel_posts'>Related Articles</h2> $rel_posts";
+}
+return $content;
+}
+add_filter('the_content', 'related_posts_with_thumb', 2);
