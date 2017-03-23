@@ -1334,15 +1334,9 @@ margin-left:2px;
 }
 
 /* Experimento sobre comments.php*/
+/*
 .comments-area{
-   background: #fff; /*background color of the author box*/
-  border: 1px solid #ccc; /* border around the box */
-  width:83%;
-  position:relative;
-  overflow:hidden;
-  color: #333;
-  margin:15px 0 15px 0; /*space top and bottom of the box*/
-  padding-bottom:5px;
+
 }
 .comment-list{
 	list-style: none;
@@ -1355,7 +1349,91 @@ margin-left:2px;
 }
 .comment-body p{
     color: #777;
-    font-size:0.9em;
+    font-size:1em;
     margin: 0 0 1em;
 	line-height:1.9em;
+}
+.comment-author img {
+ margin:0;
+padding: 0 2px 0px 0px;
+float:left;
+}
+*/
+.comments{
+  border:1px solid #000;
+  padding:8px;
+  width:100%;
+overflow:hidden;
+color: #333;
+margin:15px 0 15px 0; /*space top and bottom of the box*/
+}
+.comments-grids{
+  margin:3em 0 0;
+}
+.comment-list{
+  list-style: none;
+}
+.comment-author{
+  float:left;
+  width:15%;
+}
+.comments-title{
+  color: #585858;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+.comment-author img{
+  padding:.3em;
+  border:2px solid #ffac3a;
+  border-radius:50px;
+}
+
+.comment-body p{
+  font-size:14px;
+  color:#999;
+  line-height:1.8em;
+  margin:0;
+}
+.comment-body.reply{
+  float:right;
+  width:75%;
+}
+.comment-body.reply ul{
+  padding:1em 0;
+}
+.comment-body.reply ul li{
+  display: inline-block;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.comment-body.reply ul li i{
+  margin:0 1em;
+  font-style:normal;
+}
+.comment-body.reply ul li a{
+  color:#ffac3a;
+  text-decoration:none;
+}
+.comment-body.reply ul li a:hover{
+  color:#999;
+}
+
+.comment-form{
+  margin:3em 0 0;
+}
+.comment-form input[type="text"],.comment-forminput[type="email"],.comment-form textarea{
+  outline: none;
+    border:2px solid #ececec;
+    background: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #212121;
+    width: 48.82%;
+}
+.comment-author .fn {
+
+  border:2px solid #ffac3a;
+ 
 }

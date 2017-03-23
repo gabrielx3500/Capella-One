@@ -1,8 +1,9 @@
 <?php if ( post_password_required() ) {
 	return;
 } ?>
-<div class="container">
-	<div id="comments" class="col-md-9 comments-area ">
+
+<div class="comments">		
+  <div class="comments-grids">
 		<?php if ( have_comments() ) : ?>
 			<h3 class="comments-title">
 				<?php
@@ -25,5 +26,5 @@
 			</p>
 		<?php endif; ?>
 		<?php comment_form(); ?>
-	</div>
+  </div>		
 </div>
